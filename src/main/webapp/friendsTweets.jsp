@@ -90,7 +90,8 @@ for (Entity result : pq.asIterable()) {
 		String picture = (String) result.getProperty("profile_pic");
 		String status = (String) result.getProperty("status");
 		Long id = (Long) result.getKey().getId();
-		String time = (String) result.getProperty("timestamp");
+		// String time = (String) result.getProperty("timestamp");
+		String time = "test time";
 		Long visited_count = (Long) ((result.getProperty("visited_count")));
 	%>
 	          
