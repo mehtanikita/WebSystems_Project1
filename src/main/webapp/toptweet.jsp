@@ -1,7 +1,3 @@
-<%--
-This page display top tweets from friends based on count it has been visited
---%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
@@ -63,26 +59,34 @@ This page display top tweets from friends based on count it has been visited
 			  //out.println(result.getProperty("first_name")+" "+request.getParameter("name"));
 			  String first_name = (String) result.getProperty("first_name"); //fetch first_name of user who posted tweet
 			  String lastName = (String) result.getProperty("last_name"); //fetch last_name of user who posted tweet
-			
+			  String picture = (String) result.getProperty("picture");
 			  String status = (String) result.getProperty("status"); //fetch status of user who posted tweet
 			  Long id = (Long) result.getKey().getId(); //fetch id of user who posted tweet
 			  String time = (String) result.getProperty("timestamp"); //fetch timestamp of the tweet
 			  Long visited_count = (Long)((result.getProperty("visited_count"))); //fetch how many times the tweet was visited
 %>
 			  
-			  <table>
+			  <table  frame=box style="width: 100%;">
 			 
-			  <td><strong>User:</strong> <%= first_name+" "+lastName %> </td></tr> 
-			  <tr><td><strong>Status:</strong> <%= status %></td></tr> 
-			  <tr><td><strong>Posted at:</strong> <%=time %></td></tr> 
-			  <tr><td><strong>#Visited:</strong> <%= visited_count %></td></tr> 
+			  <tr><td><div style="height: 150px; width:150px; position: relative"> <%= picture %></div><td></tr>
+			  <td><input type="button" value="User : " class="user_button"></input> <%= first_name+" "+lastName %> </td></tr>
+			  <tr>
+			  	<td><input type="button" value="Tweet : " class="user_button"></button> <%= status %></td>
+			  </tr>
+			  <tr>
+			  	<td><input type="button" value="Posted at : " class="user_button"></input> <%=time %></td>
+			  </tr>
+			  <tr>
+			  	<td><input type="button" value="#Visited : " class="user_button"></button> <%= visited_count %></td>
+			  	</tr>
 			  </table>
 			  
-			  <br><hr>	<br>
-			<%  Entity s=ds.get(KeyFactory.createKey("tweet", id)); 
-			  s.setProperty("visited_count", visited_count+1); 
-			  ds.put(s); //increment visited count and store it in the data store
-			  count++; //increment count by 1
+			  <br><br>	
+			<%  Entity s=ds.get(KeyFactory.createKey("tweet", id));	
+			  s.setProperty("visited_count", visited_count+1);	
+			  ds.put(s);	
+			  count++;	
+
 		}
 	}
 %>
