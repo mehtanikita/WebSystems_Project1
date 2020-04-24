@@ -19,13 +19,13 @@
  <link rel="stylesheet" href="/css/tweet.css">
  <!--Code for client side google analytics tracking -->
  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153765665-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164483612-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-153765665-1');
+  gtag('config', 'UA-164483612-1');
 </script>
 </head>
 <body>
