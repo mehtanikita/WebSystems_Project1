@@ -34,7 +34,7 @@
 		</div>
 	</div>
 <td><textarea id="text_content" name="text_content" class="textarea"
-							placeholder="TYPE HERE" ></textarea></td>
+							placeholder="TYPE HERE.." ></textarea></td>
 <input type=hidden id=user_id name= user_id />
 <input type=hidden id=first_name name=first_name  />
 <input type=hidden id=last_name name=last_name  />

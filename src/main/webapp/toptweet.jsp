@@ -50,7 +50,7 @@
 //display top 10 tweets from datastore
 	DatastoreService ds=DatastoreServiceFactory.getDatastoreService(); //Create instance of DataStore (ds)
 	Entity e=new Entity("tweet");  //creates new entity called tweet 
-	Query q=new Query("tweet").addSort("visited_count", SortDirection.DESCENDING); //Create query string for tweet based on descending order of tweets visited count
+	Query q=new Query("tweet"); //Create query string for tweet based on descending order of tweets visited count
 	PreparedQuery pq = ds.prepare(q); //send this query to datastore ds
 	int count=0;
 	//loop to display tweets till count value reaches from 0 to 9 (top 10)
@@ -63,12 +63,13 @@
 			  String status = (String) result.getProperty("status"); //fetch status of user who posted tweet
 			  Long id = (Long) result.getKey().getId(); //fetch id of user who posted tweet
 			  String time = (String) result.getProperty("timestamp"); //fetch timestamp of the tweet
+			  //String time = "test time";
 			  Long visited_count = (Long)((result.getProperty("visited_count"))); //fetch how many times the tweet was visited
 %>
 			  
 			  <table  frame=box style="width: 100%;">
 			 
-			  <tr><td><div style="height: 150px; width:150px; position: relative"> <%= picture %></div><td></tr>
+			  <tr><td><div style="height: 150px; width:150px; position: relative"><img src="<%=picture%>"/></div><td></tr>
 			  <td><input type="button" value="User : " class="user_button"></input> <%= first_name+" "+lastName %> </td></tr>
 			  <tr>
 			  	<td><input type="button" value="Tweet : " class="user_button"></button> <%= status %></td>

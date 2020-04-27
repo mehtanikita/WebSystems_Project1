@@ -71,12 +71,12 @@ Cookie cookie = null;
 Cookie[] cookies = null;
 cookies = request.getCookies();
 for (int i = 0; i < cookies.length; i++) {
-if(cookies[i].getName().compareTo("user_id")==0){
-	uid=cookies[i].getValue();
-}
-if(cookies[i].getName().compareTo("first_name")==0){
-	fname=cookies[i].getValue();
-}
+	if(cookies[i].getName().compareTo("user_id")==0){
+		uid=cookies[i].getValue();
+	}
+	if(cookies[i].getName().compareTo("first_name")==0){
+		fname=cookies[i].getValue();
+	}
 }
 for (Entity result : pq.asIterable()) {
 	if (result.getProperty("user_id") != null && result.getProperty("user_id") != ""
@@ -87,18 +87,18 @@ for (Entity result : pq.asIterable()) {
 		count++;
 		String last_name = (String) result.getProperty("last_name");
 		String user_id = (String) result.getProperty("user_id");
-		String picture = (String) result.getProperty("profile_pic");
+		String picture = (String) result.getProperty("picture");
 		String status = (String) result.getProperty("status");
 		Long id = (Long) result.getKey().getId();
-		// String time = (String) result.getProperty("timestamp");
-		String time = "test time";
+		//String time = (String) result.getProperty("timestamp");
+		//String time = "test time";
 		Long visited_count = (Long) ((result.getProperty("visited_count")));
 	%>
 	          
 			  <br>
+			  <p><div style="height: 150px; width:150px; position: relative"><img src="<%=picture%>"/></div></p>
 			  <p><strong>User:</strong> <%= first_name %> <%= last_name %> </p>
 			  <p><strong>Status:</strong> <%= status %> </p>
-			  <p><strong> Posted Date:</strong> <%= time %> </p>
 			  <p><strong>Visited#:</strong> <%= visited_count %></p><br>	  
 			  <hr>
 	<%  
