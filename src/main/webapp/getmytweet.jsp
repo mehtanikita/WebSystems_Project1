@@ -91,7 +91,7 @@ if (request.getParameter("u_id") != null) {
 			StringBuffer sb = new StringBuffer();
 			String url = request.getRequestURL().toString();
 			String baseURL = url.substring(0, url.length() - request.getRequestURI().length())
-					+ request.getContextPath() + "/";
+					+ request.getContextPath() + "/"; 
 			sb.append(baseURL + "direct_tweet.jsp?id=" + id);
 %>
 

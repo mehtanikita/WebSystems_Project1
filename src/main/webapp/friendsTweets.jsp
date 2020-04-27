@@ -84,7 +84,7 @@ for (Entity result : pq.asIterable()) {
 		//out.println(result.getProperty("first_name")+" "+request.getParameter("name"));
 		
 		String first_name = (String) result.getProperty("first_name");
-		count++;
+		count++; 
 		String last_name = (String) result.getProperty("last_name");
 		String user_id = (String) result.getProperty("user_id");
 		String picture = (String) result.getProperty("picture");
